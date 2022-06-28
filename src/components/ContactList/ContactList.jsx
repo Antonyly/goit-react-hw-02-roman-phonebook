@@ -4,15 +4,14 @@ import s from "./ContactList.module.css";
 
 const ContactList = ({ contacts, onRemoveContact }) => (
   <ul className={s.list}>
-    {contacts.map((contact) => (
-      <li className = {s.item}key={contact.id}>
-        {contact.name + ":" + contact.number}
+    {contacts.map(({id, name, number}) => (
+      <li className = {s.item} key={id}>
+        {name} : {number}
         {
           <button
             className={s.button}
             type="button"
-            name="delte"
-            onClick={() => onRemoveContact(contact.id)}
+            onClick={() => onRemoveContact(id)}
           >
             Delete
           </button>
@@ -21,6 +20,10 @@ const ContactList = ({ contacts, onRemoveContact }) => (
     ))}
   </ul>
 );
+
+ContactList.defaultProps = {
+    contacts: [],
+}
 
 ContactList.propTypes = {
   onRemoveContact: PropTypes.func.isRequired,

@@ -19,11 +19,11 @@ export default class App extends Component {
   };
 
   addContact = (el) => {
-    const searchSameName = this.state.contacts
+    const searchName = this.state.contacts
       .map((contact) => contact.name)
       .includes(el.name);
 
-    if (searchSameName) {
+    if (searchName) {
       alert(`${el.name} is already in contacts`);
     } else if (el.name.length === 0) {
       alert("Fields must be filled!");
