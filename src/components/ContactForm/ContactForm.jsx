@@ -18,7 +18,7 @@ class ContactForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    this.props.onAddContact( this.state );
+    this.props.onSubmit( this.state );
 
     this.setState({
       name: "",
@@ -60,9 +60,7 @@ class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  onAddContact: PropTypes.func.isRequired,
-  name: PropTypes.string,
-  number: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
